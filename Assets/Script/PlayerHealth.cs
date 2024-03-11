@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public float fullHealth;
-    float currentHealth;
+    public float currentHealth;
 
     public GameObject PlayerBlood;
 
@@ -45,6 +45,13 @@ public class PlayerHealth : MonoBehaviour
         {
             makeDead();
         }
+    }
+
+    public void addHealth(float health)
+    {
+        currentHealth +=health;
+        if(currentHealth > fullHealth) currentHealth = fullHealth;
+        PlayerHealthSlider.value = currentHealth;
     }
 
     public void makeDead()
