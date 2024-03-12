@@ -9,6 +9,7 @@ public class AmmorPickupController : MonoBehaviour
         if(other.tag == "Player")
         {
             other.GetComponentInChildren<FireBullet>().reload();
+            AudioManager.instance.PlayeSoundAssaulReload();
             Destroy(transform.root.gameObject);
         }
     }

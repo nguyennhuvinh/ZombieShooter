@@ -30,6 +30,7 @@ public class FireBullet : MonoBehaviour
 
         if(Input.GetAxisRaw("Fire1")>0 && nextBullet < Time.time && remainingRounds >0)
         {
+            AudioManager.instance.PlaySoundShoot();
             nextBullet = Time.time + timeBetweenBullets;
             Vector3 rot;
             if (myPlayer.GetFacing() == -1f)

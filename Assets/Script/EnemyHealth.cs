@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject damageParticles;
     public bool drops;
     public GameObject drop;
+    public AudioClip deathSound;
     public bool canBurn;
     public float burnTime;
     public GameObject burnEffects;
@@ -57,7 +58,9 @@ public class EnemyHealth : MonoBehaviour
 
     public void makeDead()
     {
-        Destroy(gameObject.transform.root.gameObject);
+        AudioManager.instance.PlayeSoundZdead();
+
+        Destroy(gameObject);
         if (drops) Instantiate(drop, transform.position + Vector3.up * 1f, Quaternion.identity);
     }
 }

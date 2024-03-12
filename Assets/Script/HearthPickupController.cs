@@ -10,11 +10,13 @@ public class HearthPickupController : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
 
             // Check if the player's current health is less than their full health
             if (playerHealth.currentHealth  < playerHealth.fullHealth)
             {
+                AudioManager.instance.PlayeSoundHealthBell();
                 playerHealth.addHealth(healthAmount);
                 Destroy(transform.root.gameObject);
             }
